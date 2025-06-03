@@ -1,0 +1,19 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Virtual env
+venv/
+# or if you named it ".venv/"
+#.venv/
+
+# HuggingFace / Gradio caches
+.gradio/
+cache/
+transformers_cache/
+huggingface/
+
+# OS files
+.DS_Store
+Thumbs.db

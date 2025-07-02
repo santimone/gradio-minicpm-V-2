@@ -26,6 +26,16 @@ def predict(image: Image.Image, prompt: str):
             max_new_tokens=100
         )
 
+    # Debug: print what outputs looks like
+    print(f"Type of outputs: {type(outputs)}")
+    print(f"Length of outputs: {len(outputs) if hasattr(outputs, '__len__') else 'No length'}")
+    print(f"Type of outputs[0]: {type(outputs[0])}")
+    print(f"First few elements of outputs[0]: {outputs[0][:10] if hasattr(outputs[0], '__getitem__') else outputs[0]}")
+
+    # Check if outputs[0] is already a string
+    if isinstance(outputs[0], str):
+        return outputs[0]
+    
     # decode the first generated sequence
     return processor.decode(outputs[0], skip_special_tokens=True)
 
